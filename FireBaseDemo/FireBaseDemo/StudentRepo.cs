@@ -1,0 +1,33 @@
+﻿using Firebase.Database;
+using FireBaseDemo.Model;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FireBaseDemo
+{
+    public class StudentRepo
+    {
+        //Add base url, your database url from Firebase website
+        FirebaseClient firebaseClient =
+        new FirebaseClient
+        ("https://xamarin-project-65969-default-rtdb.firebaseio.com/");
+        public async Task<bool> Save(Student student)
+        {
+            //Save student data to the Student node in the Firebase
+            //Create a new one if it does not exist
+            var data = await firebaseClient.Child(nameof(Student)).
+            PostAsync(JsonConvert.SerializeObject(student));
+            if (!String.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}

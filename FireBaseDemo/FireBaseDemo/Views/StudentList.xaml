@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FireBaseDemo.Views.StudentList">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+x:Name="AddToolBarItem"
+Text="Add"
+Clicked="AddToolBarItem_Clicked">
+        </ToolbarItem>
+        <ToolbarItem
+x:Name="EditToolBarItem"
+Text="Edit"
+Clicked="EditToolBarItem_Clicked">
+        </ToolbarItem>
+        <ToolbarItem
+x:Name="DeleteToolBarItem"
+Text="Delete"
+Clicked="DeleteToolBarItem_Clicked">
+        </ToolbarItem>
+        </ContentPage.ToolbarItems>
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Student List"
+VerticalOptions="CenterAndExpand"
+HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ContentPage.Content>
+
+</ContentPage>
