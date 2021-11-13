@@ -13,9 +13,16 @@ namespace FireBaseDemo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StudentList : ContentPage
     {
+        StudentRepo studentRepo = new StudentRepo();
         public StudentList()
         {
             InitializeComponent();
+            //await studentRepo.GetAll();
+        }
+        protected override async void OnAppearing()
+        {
+            var students = await studentRepo.GetAll();
+            StudentListView.ItemsSource = students;
         }
         private void AddToolBarItem_Clicked(object sender, EventArgs e)
         {

@@ -4,21 +4,25 @@
              x:Class="FireBaseDemo.Views.StudentEntry">
     <ContentPage.Content>
         <StackLayout Padding="20"
-VerticalOptions="CenterAndExpand"
-HorizontalOptions="CenterAndExpand">
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
             <Label Text="Student Entry"
-FontSize="Large"/>
+                FontSize="Large"/>
             <Entry x:Name="txtLName"
-Placeholder="Enter your last name"/>
+                Placeholder="Enter your last name"/>
             <Entry x:Name="txtFName"
-Placeholder="Enter your first name"/>
+                Placeholder="Enter your first name"/>
             <Entry x:Name="txtEmail"
-Placeholder="Enter your email address"
-Keyboard="Email"/>
+                Placeholder="Enter your email address"
+                Keyboard="Email"/>
+            <Entry x:Name="txtPhone"
+                Placeholder="Enter your phone number"
+                Keyboard="Telephone"/>
+
             <Button x:Name="btnSave"
-Text="Save"
-CornerRadius="15"
-Clicked="btnSave_Clicked"/>
+                Text="Save"
+                CornerRadius="15"
+                Clicked="btnSave_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

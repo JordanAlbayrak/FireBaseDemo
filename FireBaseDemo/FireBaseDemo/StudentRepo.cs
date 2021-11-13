@@ -3,6 +3,7 @@ using FireBaseDemo.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,20 @@ namespace FireBaseDemo
             {
                 return false;
             }
+        }
+        public async Task<List<Student>> GetAll()
+        {
+            //reading the firebaseClient.Child to fill/create the list
+            return (await firebaseClient.
+            Child(nameof(Student)).OnceAsync<Student>()).Select(
+            item => new Student
+            {
+                LastName = item.Object.LastName,
+                FirstName = item.Object.FirstName,
+                Email = item.Object.Email,
+                Phone = item.Object.Phone,
+                //SID = item.Key
+            }).ToList();
         }
     }
 }

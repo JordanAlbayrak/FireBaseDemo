@@ -4,27 +4,44 @@
              x:Class="FireBaseDemo.Views.StudentList">
     <ContentPage.ToolbarItems>
         <ToolbarItem
-x:Name="AddToolBarItem"
-Text="Add"
-Clicked="AddToolBarItem_Clicked">
+            x:Name="AddToolBarItem"
+            Text="Add"
+            Clicked="AddToolBarItem_Clicked">
         </ToolbarItem>
         <ToolbarItem
-x:Name="EditToolBarItem"
-Text="Edit"
-Clicked="EditToolBarItem_Clicked">
+            x:Name="EditToolBarItem"
+            Text="Edit"
+            Clicked="EditToolBarItem_Clicked">
         </ToolbarItem>
         <ToolbarItem
-x:Name="DeleteToolBarItem"
-Text="Delete"
-Clicked="DeleteToolBarItem_Clicked">
+            x:Name="DeleteToolBarItem"
+            Text="Delete"
+            Clicked="DeleteToolBarItem_Clicked">
         </ToolbarItem>
         </ContentPage.ToolbarItems>
-        <ContentPage.Content>
-            <StackLayout>
-                <Label Text="Student List"
-VerticalOptions="CenterAndExpand"
-HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
-        </ContentPage.Content>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <Label Text="Student List"
+FontSize="Large"/>
+            <ListView x:Name="StudentListView"
+                ItemsSource="{Binding students}"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5"
+            HorizontalOptions="StartAndExpand">
+
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding LastName}" FontSize="Large"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding FirstName}" FontSize="Large"/>
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding Email}" FontSize="Large"/>
+                                <Label Grid.Column="0" Grid.Row="2" Text="{Binding Phone}" FontSize="Large"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>

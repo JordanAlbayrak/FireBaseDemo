@@ -23,6 +23,7 @@ namespace FireBaseDemo.Views
             string Lname = txtLName.Text;
             string Fname = txtFName.Text;
             string Email = txtEmail.Text;
+            string Phone = txtPhone.Text;
             if (String.IsNullOrEmpty(Lname))
             {
                 await DisplayAlert("Required", "Enter last name", "Cancel");
@@ -35,18 +36,23 @@ namespace FireBaseDemo.Views
             {
                 await DisplayAlert("Required", "Enter email", "Cancel");
             }
+            if (String.IsNullOrEmpty(Phone))
+            {
+                await DisplayAlert("Required", "Enter phone", "Cancel");
+            }
             Student student = new Student();
             student.LastName = Lname;
             student.FirstName = Fname;
             student.Email = Email;
+            student.Phone = Phone;
             var isSaved = await repository.Save(student);
             if (isSaved)
             {
-                await DisplayAlert("Success", "Saved", "Cancel");
+                await DisplayAlert("Success", "Saved", "Close");
             }
             else
             {
-                await DisplayAlert("Failed", "Did not save", "Cancel");
+                await DisplayAlert("Failed", "Did not save", "Close");
             }
             ClearStudent();
         }
@@ -55,6 +61,7 @@ namespace FireBaseDemo.Views
             txtLName.Text = String.Empty;
             txtFName.Text = String.Empty;
             txtEmail.Text = String.Empty;
+            txtPhone.Text = String.Empty;
         }
     }
 }
